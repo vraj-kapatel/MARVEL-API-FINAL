@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvel API App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Hide main app until auth is confirmed */
+      #app {
+        display: none;
+      }
+
+      /* skipping the auth gate and dispay the real app
+      /* #auth-gate {
+        display: none;
+      }
+      #app {
+        display: block;
+      } */
+
+      .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5em;
+      }
+      .nav-title {
+        color: #e01a38;
+        font-weight: 600;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .logout-btn {
+        background: transparent;
+        border: 1px solid #e01a38;
+        color: #e01a38;
+        padding: 0.4em 1em;
+        border-radius: 0.5em;
+        cursor: pointer;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8em;
+        font-weight: 600;
+      }
+      .logout-btn:hover {
+        background-color: #e01a38;
+        color: #ffffff;
+      }
+
+      /* Auth gate shown while checking session */
+      #auth-gate {
+        background-color: #171821;
+        width: 90%;
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 3em 2em;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 4em;
+        border-radius: 1em;
+        text-align: center;
+      }
+      .gate-title {
+        color: #ffffff;
+        font-size: 1.5em;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.3em;
+      }
+      .gate-title span {
+        color: #e01a38;
+      }
+      .gate-subtitle {
+        color: #a0a0a6;
+        font-size: 0.85em;
+        font-weight: 300;
+        margin-bottom: 2em;
+      }
+      .gate-btn {
+        display: block;
+        width: 100%;
+        padding: 0.9em;
+        border-radius: 0.5em;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        margin-bottom: 0.8em;
+      }
+      .gate-btn-primary {
+        background-color: #e01a38;
+        color: #ffffff;
+        border: none;
+      }
+      .gate-btn-primary:hover {
+        opacity: 0.88;
+      }
+      .gate-btn-secondary {
+        background: transparent;
+        color: #a0a0a6;
+        border: 1px solid #3a3939;
+      }
+      .gate-btn-secondary:hover {
+        border-color: #e01a38;
+        color: #e01a38;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Shown to unauthenticated users -->
+    <div id="auth-gate">
+      <div class="gate-title">Marvel <span>API</span></div>
+      <p class="gate-subtitle">Sign in to search Marvel characters</p>
+      <a href="login.html" class="gate-btn gate-btn-primary">Log In</a>
+      <a href="register.html" class="gate-btn gate-btn-secondary"
+        >Create an Account</a
+      >
+    </div>
+
+    <!-- Main app — hidden until auth confirmed -->
+    <div id="app" class="container">
+      <div class="nav-bar">
+        <span class="nav-title"
+          >Marvel <span style="color: #fff">API</span></span
+        >
+        <button class="logout-btn" id="logout-btn">Log Out</button>
+      </div>
+      <div class="input-container">
+        <input type="text" class="input" value="Hulk" id="input-box" />
+        <button class="button" id="submit-button">Submit</button>
+      </div>
+      <div class="list"></div>
+      <div class="display-container" id="show-container"></div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

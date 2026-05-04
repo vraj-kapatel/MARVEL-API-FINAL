@@ -1,0 +1,16 @@
+{
+  "name": "marvel-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/dev-chrome.mjs",
+    "dev": "vite --host 127.0.0.1 --open /index.html",
+    "dev:chrome": "node scripts/dev-chrome.mjs",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --open /index.html"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
